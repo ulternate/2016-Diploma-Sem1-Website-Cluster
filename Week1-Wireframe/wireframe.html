@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="./css/wireframe.css">
+		<title>My little wireframe</title>
+	</head>
+	<body>
+		<div id="outer">
+			<header id="top">Header</header>
+
+			<nav>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Item 1</a></li>
+				</ul>
+				<br class="clearfloat"/>
+			</nav>
+
+			<div id="main-content">
+				<aside>
+					<b>This heading will turn invisible on hover</b>
+					<p>Welcome to my wireframe.</p>
+					<ul>
+						<li><a href="#3">Half Content Section</a></li>
+						<li><a href="#4">Full Content Section</a></li>
+						<li><a href="#float-right-test">Testing float-right</a></li>
+						<li><a href="#cleartest1">Testing clear take 1</a></li>
+						<li><a href="#cleartest2">Testing clear take 2</a></li>
+						<li><a href="#cliptest">Testing clipping and z-index</a></li>
+						<li><a href="#display-testing">Testing display properties</a></li>
+					</ul>
+				</aside>
+				<div class="full-content" id="3">
+					<div class="half-content" id="1">
+						<p class="class-first-letter">Bacon ipsum dolor amet meatball bacon t-bone, short ribs chuck hamburger ball tip ham fatback porchetta. Capicola et meatball bacon t-bone, short ribs chuck hamburger ball tip ham fatback porchetta. Capicola et meatball bacon t-bone, short ribs chuck hamburger ball tip ham fatback porchetta. Capicola tri-tip beef ribs, short loin pastrami ham hock ham. Fatback ground round ribeye short ribs shank porchetta. Doner shank tongue pancetta sirloin. Frankfurter bacon kevin bresaola jerky tongue jowl hamburger capicola andouille shank. Boudin rump turducken corned beef sausage pork chop hamburger filet mignon jerky pork belly flank shoulder beef cow. T-bone tri-tip ham hock pig turducken shoulder.</p>
+					</div>
+					<div class="half-content" id="2">
+						<p class="class-first-line">Bacon ipsum dolor amet meatball bacon t-bone.<p>
+						<form id="form-test">
+							<p><input disabled type="text" name="firstname" placeholder="First Name is Disabled"></p>
+							<fieldset id="male">
+								<input type="radio" name="male" value="male" checked> Male<br>
+							</fieldset>
+							<p><input type="number" name="number" min="1" max="10">Number between 1 and 10</p>
+							<fieldset id="female-other">
+							  	<input type="radio" name="gender" value="female"> Female<br>
+							  	<input type="radio" name="gender" value="other"> Other<br>
+							</fieldset>
+							<p><input required type="text" name="email" placeholder="email@address.com"></p>
+							<p><input type="submit" value="submit" onclick="alert('Thanks')" id="submit1"></p>
+							<p><input type="reset"value="reset" onclick="alert('Reset')" id="reset1"></p>
+						</form>
+					</div>
+					<div class="full-content" id="4">
+						<h3>Full content section</h3>
+						<p>Bacon ipsum dolor amet meatball bacon t-bone, short ribs chuck hamburger ball tip ham fatback porchetta. Capicola tri-tip beef ribs, short loin pastrami ham hock ham. Fatback ground round ribeye short ribs shank porchetta. Doner shank tongue pancetta sirloin. Frankfurter bacon kevin bresaola jerky tongue jowl hamburger capicola andouille shank. Boudin rump turducken corned beef sausage pork chop hamburger filet mignon jerky pork belly flank shoulder beef cow. T-bone tri-tip ham hock pig turducken shoulder.</p>
+						<a href="http://www.google.com">Testing :before tag, an image should be added before the link</a><br>
+						<a href="#top">Testing :before tag, no image should be added as the url doesn't start with http.</a><br>
+					</div>
+
+					<!-- Float left is normally applied on my half-content elements
+				 		Here I've applied float-right to move it to the right of the container.-->
+					<div class="half-content float-right" id="float-right-test">
+						<h3>Float right test</h3>
+						<p>Testing the float property by setting it to float right. This is a half width element, normally floated left.</p>
+					</div>
+
+
+					<!-- The following elements demonstrate the clear properties.
+				 		I'm using clear-left and clear-right-->
+					<div class="full-content" id="cleartest1">
+						<h3>Clear test 1</h3>
+						<div class="half-content">
+							<p>This div is half the width of the main content</p>
+						</div>
+						<div class="half-content clear-left">
+							<p>This div is half the width of the main content but has clear-left applied, pushing it to a new line</p>
+						</div>
+					</div>
+					<div class="full-content" id="cleartest2">
+						<h3>Clear test 2</h3>
+						<div class="half-content clear-right">
+							<p>This div is half the width of the main content but has clear-right applied, leaving empty space to the right of it.</p>
+						</div>
+						<div class="half-content">
+							<p>This div is half the width of the main content</p>
+						</div>
+					</div>
+
+					<!-- The following elements demonstrate the clip-test using
+				 		the new clip-path.
+						I also use the z-test class to demonstrate z ordering.-->
+					<div class="full-content" id="cliptest">
+						<h3>Clipping test + z test. Hover over circle to change clipping</h3>
+						<img class="z-test" src="./img/Square_100x100.png" alt="Z-indext test"/>
+						<img class="clip-test" src="./img/Square_200x200.png" alt="Clipped test" />
+					</div>
+
+					<!-- The following demonstrates the display property -->
+					<div class="full-content" id="display-testing">
+						<h3>Testing display property settings</h3>
+						<p class="display-inline">This should be displayed inline, with no line breaks.</p>
+						<p class="display-block">This should be a paragraph. with line breaks above and below</p>
+						<p class="display-inline">This should be displayed inline, with no line breaks.</p>
+						<p class="display-inline">This should be displayed inline, with no line breaks.</p>
+						<p class="display-inline">This should be displayed inline, with no line breaks.</p>
+					</div>
+
+				</div>
+				<a class="back-to-top-button" href="#top">Top of page</a>
+				<br class="clearfloat"/>
+			</div>
+
+			<footer>Footer stuff</footer>
+		</div>
+
+	</body>
+</html>

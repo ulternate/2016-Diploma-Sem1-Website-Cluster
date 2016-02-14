@@ -1,0 +1,271 @@
+/*I've re-ordered this file so the css properties in the pdf
+are demonstrated as close to in order as possible.
+This means some base elements might be styled in different locations.
+*/
+
+
+/*------------Main styling--------------------*/
+
+body{
+	height:auto;
+}
+
+#outer{
+	width:800px;
+	margin:0 auto;
+}
+
+header{
+	border: 1px solid black;
+	height: 200px;
+}
+
+
+nav ul {
+	list-style-type: none;
+}
+
+nav ul li, footer ul li {
+	float: left;
+	margin: 0 5px 0;
+}
+
+aside{
+	float:left;
+	margin: 10px 0 10px 0;
+	width:200px;
+	height:auto;
+	background-color:red;
+}
+
+h3{
+	border-bottom: 1px solid black;
+}
+
+footer{
+	float:left;
+	width:100%;
+	border: 1px solid black;
+}
+
+.content{
+	float:left;
+	margin: 10px 0 10px 0;
+	width:600px;
+}
+
+.half-content{
+	float:left;
+	margin: 10px 5px 10px;
+	width: 290px;
+	background-color:green;
+}
+
+.full-content{
+	float:left;
+	margin: 10px 0 10px;
+	width:600px;
+	background-color:yellow;
+}
+
+.clearfloat{
+	font-size: 0px;
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+	float: none;
+	height: 0px;
+	width: 0px;
+	border: 0px none;
+	line-height: 0px;
+}
+
+
+/*------------Addition classes demonstrating PDF tasks--------------------*/
+
+/* Demonstrating clear-left and clear-right, as well as changing float to right */
+.clear-left{
+	clear:left;
+}
+
+.clear-right{
+	float: none; /* I found I needed to clear the underlying float
+	 as well to send the next element to a new line*/
+	clear: right;
+}
+
+.float-right{
+	float: right;
+}
+
+
+/* Demonstrating the new clip-path method as well as changing the
+clipping on hover note, -webkit- prefix was required for chrome*/
+.clip-test{
+	-webkit-clip-path: circle(50% at 50% 50%);
+	clip-path: circle(50% at 50% 50%);
+	/*position: absolute;
+	width: 200px;
+	clip: rect(10px 190px 200px 10px);*/
+}
+
+.clip-test:hover	{
+	-webkit-clip-path: ellipse(30% 50% at 50% 50%);
+	clip-path: ellipse(30% 50% at 50% 50%);
+}
+
+/* Demonstrating the cursor property*/
+nav a:hover{
+	cursor: url(../img/cursor.png), default; /* Demonstrating multiple cursor properties*/
+	color: green; /* this was put in to test the transitions */
+}
+nav{
+	border: 1px solid black;
+	height: 50px;
+	cursor: wait; /* Demonstrating multiple cursor properties*/
+}
+
+/* Demonstrating different values for Display property.*/
+.display-block{
+	display: block; /*Similar to the p tag */
+}
+.display-inline{
+	display: inline;
+}
+
+/* Demonstrating the Visibility property.
+Hide links in the aside on hover.*/
+aside b:hover{
+	visibility: hidden;
+}
+
+
+/* Demonstrating the z indext property.
+ This places this object above others in the container.*/
+.z-test{
+	position:absolute;
+	z-index: 2;
+}
+
+/* Demonstrating the position property.
+Here I'm using it for a button taking you back to the top of the page.
+The button is fixed in the window so it scrolls above the content. */
+.back-to-top-button{
+	position: fixed;
+	top: 25%;
+	right: 5%;
+}
+
+/* Demonstrating the psuedo elements :first-line and first-letter.
+I'm using a class to declare them so I don't apply this styling to
+all my <p> tags */
+p.class-first-line:first-line {
+	font-size: 30px;
+	font-style: italic;
+	font-family: sans-serif;
+	line-height: 70px;
+	word-spacing: 10px;
+	color: red;
+}
+
+p.class-first-letter:first-letter{
+	font-size: 50px;
+	font-weight: bold;
+	font-style: oblique;
+	font-family: cursive;
+	color: red;
+}
+
+/*Demonstrating generated content.
+This will prepend an image to all url's which start with http*/
+a[href^="http"]:before{
+	content: url(../img/cursor.png);
+}
+
+/*Change the way selection is handled, it will use a different colour. */
+::selection {
+	background:#484848;
+	color:grey;
+}
+
+/* Demonstrating css vender prefixes with transitions.
+The links should change colour from red to green on hover
+(This is set elsewhere in the document)*/
+nav a{
+	-webkit-transition: all 2s ease;
+	-moz-transition: all 2s ease;
+	-ms-transition: all 2s ease;
+	-o-transition: all 2s ease;
+	transition: all 2s ease;
+	color:red;
+}
+
+/* Demonstrating Pseudo classes
+I'm providing different styles for each pseudo class*/
+form, input, fieldset{
+	/*Initial margins for form elements*/
+	margin: 5px 5px 5px 5px;
+}
+form > input:disabled{
+	/*For first child marked disabled in html*/
+	background-color: grey;
+}
+
+form input:enabled{
+	/*For active elements make background grey*/
+	background-color: grey;
+}
+
+form input:checked{
+	/*Move the radio checkbox when it has been checked.*/
+	margin-left: 30px;
+}
+
+form input:indeterminate{
+	/*Move the radio checkbox when it is neither checked or unchecked.*/
+	margin-left: 15px;
+}
+
+form input:default{
+	background-color: yellow;
+}
+
+form input:valid{
+	/*For valid elements make background green*/
+	background-color: green;
+}
+
+form input:invalid{
+	/*For invalid elements make background red*/
+	background-color: red;
+}
+
+form input:required{
+	margin-left: 30px;
+}
+
+form input:optional{
+	background-color: grey;
+}
+
+form input:in-range{
+	background-color: green;
+}
+
+form input:out-of-range{
+	background-color: red;
+}
+
+:read-only:focus{
+	/*When tabbing through elements that are read only they will
+	have an orange background*/
+	background-color: orange;
+}
+
+:target{
+	/*change the background colour of the element that has been targeted.*/
+	background-color:blue;
+}
+
+/*Modenizer here
+using it to display a gradient if the browser doesn't support it*/
