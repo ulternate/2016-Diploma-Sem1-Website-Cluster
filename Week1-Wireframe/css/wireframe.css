@@ -68,7 +68,7 @@ footer{
 	background-color:yellow;
 }
 
-.clearfloat{
+.clear-float{
 	font-size: 0px;
 	margin: 0px;
 	padding: 0px;
@@ -116,7 +116,7 @@ clipping on hover note, -webkit- prefix was required for chrome*/
 
 /* Demonstrating the cursor property*/
 nav a:hover{
-	cursor: url(../img/cursor.png), default; /* Demonstrating multiple cursor properties*/
+	cursor: url("../img/cursor.png"), default; /* Demonstrating multiple cursor properties*/
 	color: green; /* this was put in to test the transitions */
 }
 nav{
@@ -179,7 +179,7 @@ p.class-first-letter:first-letter{
 /*Demonstrating generated content.
 This will prepend an image to all url's which start with http*/
 a[href^="http"]:before{
-	content: url(../img/cursor.png);
+	content: url("../img/cursor.png");
 }
 
 /*Change the way selection is handled, it will use a different colour. */
@@ -269,3 +269,43 @@ form input:out-of-range{
 
 /*Modenizer here
 using it to display a gradient if the browser doesn't support it*/
+.no-cssgradients #top {
+  background-image: url("../img/gradient.png");
+}
+
+.cssgradients #top{
+  background-image: -webkit-linear-gradient(bottom, rgb(0,0,0), rgb(254,0,254));
+  background-image: -o-linear-gradient(bottom, rgb(0,0,0), rgb(254,0,254));
+  background-image: -moz-linear-gradient(bottom, rgb(0,0,0), rgb(254,0,254));
+  background-image: linear-gradient(bottom, rgb(0,0,0), rgb(254,0,254));
+}
+
+/* Demonstrating Adjacent siblings.
+I have a list with a tags that I want styled, I want all but the first to be green*/
+ul li + li a.adjacent{
+	color: green;
+}
+
+/* Here I'll style any li elements (after the first) in the same parent
+ as the other li elements. changing the List dot to green.
+ This should show up on the main page in the aside with both lists having
+ green dots (after the first) but only the second having green links.*/
+li ~ li{
+	color: green;
+}
+
+/*Demonstrating using font-faces
+Normally the fonts I've wanted to use are available using the Google
+Fonts Api, which just requires a <link> being added to the <head>
+
+Are there page loading considerations when using an api? Would the
+@font-face method be quicker? Just curious.*/
+@font-face {
+	font-family: 'Pacifico';
+	src: url("../fonts/Pacifico.ttf") format("truetype");
+	font-weight: bold;
+	font-style: italic;
+}
+.font-test{
+	font-family: 'Pacifico';
+}
