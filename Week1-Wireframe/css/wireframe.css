@@ -207,13 +207,15 @@ form, input, fieldset{
 	margin: 5px 5px 5px 5px;
 }
 form > input:disabled{
-	/*For first child marked disabled in html*/
-	background-color: grey;
+	/*For inputs in an enclosing form marked disabled make the
+	background color red. It's marked important as these elements
+	are also :optional and that seems to be higher on the heirachy.*/
+	background-color: red !important;
 }
 
 form input:enabled{
-	/*For active elements make background grey*/
-	background-color: grey;
+	/*For active elements make text larger*/
+	font-size:20px;
 }
 
 form input:checked{
@@ -227,7 +229,16 @@ form input:indeterminate{
 }
 
 form input:default{
-	background-color: yellow;
+	/*Change the font family for default form elements*/
+	font-family: "Pacifico"
+}
+
+form input:required{
+	margin-left: 30px;
+}
+
+form input:optional{
+	background-color: grey;
 }
 
 form input:valid{
@@ -240,14 +251,6 @@ form input:invalid{
 	background-color: red;
 }
 
-form input:required{
-	margin-left: 30px;
-}
-
-form input:optional{
-	background-color: grey;
-}
-
 form input:in-range{
 	background-color: green;
 }
@@ -256,15 +259,25 @@ form input:out-of-range{
 	background-color: red;
 }
 
+/*Handling read-only and read-write. I did it on focus so the
+site wouldn't change it's css massively as the bulk of the site
+is read-only, I know I could have assigned it to a nested element
+but this demonstrates it across the entire site.*/
 :read-only:focus{
 	/*When tabbing through elements that are read only they will
 	have an orange background*/
 	background-color: orange;
 }
 
+:read-write:focus{
+	/*When tabbing/focusing on elements that are read-write they
+	they will have a blue background.*/
+	background-color: blue;
+}
+
+/*change the background colour of the element that has been targeted.*/
 :target{
-	/*change the background colour of the element that has been targeted.*/
-	background-color:blue;
+	background-color: blue;
 }
 
 /*Modenizer here
@@ -281,7 +294,10 @@ using it to display a gradient if the browser doesn't support it*/
 }
 
 /* Demonstrating Adjacent siblings.
-I have a list with a tags that I want styled, I want all but the first to be green*/
+I have a list with <a> tags that I want styled, I want all but the first
+ to be green.
+ This should show up on the main page in the aside with the second list
+ having the green link text (except the first link)*/
 ul li + li a.adjacent{
 	color: green;
 }
@@ -301,11 +317,11 @@ Fonts Api, which just requires a <link> being added to the <head>
 Are there page loading considerations when using an api? Would the
 @font-face method be quicker? Just curious.*/
 @font-face {
-	font-family: 'Pacifico';
+	font-family: "Pacifico";
 	src: url("../fonts/Pacifico.ttf") format("truetype");
 	font-weight: bold;
 	font-style: italic;
 }
 .font-test{
-	font-family: 'Pacifico';
+	font-family: "Pacifico";
 }
