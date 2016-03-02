@@ -1,0 +1,196 @@
+$border-black: #000000
+=box($float, $margin, $width, $background-color)
+	float: $float
+	margin: $margin
+	width: $width
+	background-color: $background-color
+=circle-clip($clipping)
+	-webkit-clip-path: circle($clipping)
+	clip-path: circle($clipping)
+=ellipse-clip($clipping)
+	-webkit-clip-path: ellipse($clipping)
+	clip-path: ellipse($clipping)
+=text-style($font-family, $font-style, $font-size, $font-weight, $word-spacing, $line-height, $color)
+	font-family: $font-family
+	font-style: $font-style
+	font-size: $font-size
+	font-weight: $font-weight
+	word-spacing: $word-spacing
+	line-height: $line-height
+	color: $color
+=transition($var)
+	-webkit-transition: $var
+	-moz-transition: $var
+	-ms-transition: $var
+	-o-transition: $var
+	transition: $var
+
+::selection
+	background: #484848
+	color: grey
+
+body
+	height: auto
+
+#outer
+	width: 1000px
+	margin: 0 auto
+
+header
+	border: 1px solid $border-black
+	height: 200px
+
+h3
+	border-bottom: 1px solid $border-black
+
+nav
+	border: 1px solid $border-black
+	height: 50px
+	cursor: wait
+	ul
+		list-style-type: none
+	a
+		+transition(all 2s ease)
+	a:hover
+		cursor: url("../img/cursor.png"), default
+		color: green	
+
+nav ul li,
+footer ul li
+	float: left
+	margin: 0 5px 0
+
+aside
+	float: left
+	margin: 10px 0 10px 0
+	width: 20%
+	height: auto
+	background-color: red
+	b:hover
+		visibility: hidden
+
+
+p.class-first-line:first-line
+	+text-style(sans-serif, italic, 1.8em, null, 10px, 70px, red)
+
+p.class-first-letter:first-letter
+	+text-style(cursive, oblique, 2em, bold, null, null, red)
+
+a[href^="http"]:before
+	content: url("../img/cursor.png")
+
+footer
+	float: left
+	width: 100%
+	border: 1px solid $border-black
+
+.content
+	+box(left, 10px 0 10px 0, 80%, null)
+
+.full-content
+	+box(left, 10px 1% 10px, 78%, yellow)
+
+.half-content
+	+box(left, 10px 1% 10px, 48%, green)
+
+.clear-float
+	+box(none, 0px, 0px, null)
+	font-size: 0px
+	padding: 0px
+	clear: both
+	height: 0px
+	border: 0px none
+	line-height: 0px
+
+.clear-left
+	clear: left
+
+.clear-right
+	float: none
+	clear: right
+
+.float-right
+	float: right
+
+.clip-test
+	+circle-clip(50% at 50% 50%)
+.clip-test:hover
+	+ellipse-clip(30% 50% at 50% 50%)
+
+.display-block
+	display: block
+
+.display-inline
+	display: inline
+
+.z-test
+	position:absolute
+	z-index: 2
+
+.back-to-top-button
+	position: fixed
+	top: 25%
+	right: 5%
+
+form, input, fieldset
+	margin: 5px 5px 5px 5px
+
+form > input:disabled
+	background-color: red !important
+
+form input:enabled
+	font-size: 20px
+
+form input:checked
+	margin-left: 30px
+
+form input:indeterminate
+	margin-left: 15px
+
+form input:default
+	font-family: "Pacifico"
+
+form input:required
+	margin-left: 30px
+
+form input:optional
+	background-color: grey
+
+form input:valid
+	background-color: green
+
+form input:invalid
+	background-color: red
+
+form input:in-range
+	background-color: green
+
+form input:out-of-range
+	background-color: red
+
+::target
+	background-color: blue
+
+.no-cssgradients #top
+	background-image: url("../img/gradient.png")
+
+.cssgradients #top
+	background-image: -webkit-linear-gradient(bottom, rgb(0,0,0), rgb(254,0,254))
+	background-image: -o-linear-gradient(bottom, rgb(0,0,0), rgb(254,0,254))
+	background-image: -moz-linear-gradient(bottom, rgb(0,0,0), rgb(254,0,254))
+	background-image: linear-gradient(bottom, rgb(0,0,0), rgb(254,0,254))
+
+ul li + li a.adjacent
+	color: green
+
+li ~ li
+	color: green
+
+@font-face 
+	font-family: "Pacifico"
+	src: url("../fonts/Pacifico.ttf") format("truetype")
+	font-weight: bold
+	font-style: italic
+
+.font-test
+	font-family: "Pacifico"
