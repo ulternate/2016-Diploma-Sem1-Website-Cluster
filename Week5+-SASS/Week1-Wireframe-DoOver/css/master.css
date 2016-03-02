@@ -122,6 +122,7 @@ footer {
   display: inline; }
 
 .z-test {
+  position: absolute;
   z-index: 2; }
 
 .back-to-top-button {
@@ -129,7 +130,9 @@ footer {
   top: 25%;
   right: 5%; }
 
-form, input, fieldset {
+form,
+input,
+fieldset {
   margin: 5px 5px 5px 5px; }
 
 form > input:disabled {
@@ -137,31 +140,22 @@ form > input:disabled {
 
 form input:enabled {
   font-size: 20px; }
-
 form input:checked {
   margin-left: 30px; }
-
 form input:indeterminate {
   margin-left: 15px; }
-
 form input:default {
   font-family: "Pacifico"; }
-
 form input:required {
   margin-left: 30px; }
-
 form input:optional {
   background-color: grey; }
-
 form input:valid {
   background-color: green; }
-
 form input:invalid {
   background-color: red; }
-
 form input:in-range {
   background-color: green; }
-
 form input:out-of-range {
   background-color: red; }
 
