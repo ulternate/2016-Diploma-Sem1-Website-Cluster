@@ -1,6 +1,6 @@
 ::selection {
   background: #484848;
-  color: grey; }
+  color: #FF0000; }
 
 body {
   height: auto; }
@@ -30,20 +30,20 @@ nav {
     transition: all 2s ease; }
   nav a:hover {
     cursor: url("../img/cursor.png"), default;
-    color: green; }
+    color: #008000; }
 
 nav ul li,
 footer ul li {
   float: left;
   margin: 0 5px 0; }
 
-aside {
+aside, .aside2 {
   float: left;
   margin: 10px 0 10px 0;
   width: 20%;
   height: auto;
-  background-color: red; }
-  aside b:hover {
+  background-color: #FF0000; }
+  aside b:hover, .aside2 b:hover {
     visibility: hidden; }
 
 p.class-first-line:first-line {
@@ -52,14 +52,14 @@ p.class-first-line:first-line {
   font-size: 1.8em;
   word-spacing: 10px;
   line-height: 70px;
-  color: red; }
+  color: #FF0000; }
 
 p.class-first-letter:first-letter {
   font-family: cursive;
   font-style: oblique;
   font-size: 2em;
   font-weight: bold;
-  color: red; }
+  color: #FF0000; }
 
 a[href^="http"]:before {
   content: url("../img/cursor.png"); }
@@ -78,13 +78,13 @@ footer {
   float: left;
   margin: 10px 1% 10px;
   width: 78%;
-  background-color: yellow; }
+  background-color: #FFFF00; }
 
 .half-content {
   float: left;
   margin: 10px 1% 10px;
   width: 48%;
-  background-color: green; }
+  background-color: #008000; }
 
 .clear-float {
   float: none;
@@ -136,7 +136,7 @@ fieldset {
   margin: 5px 5px 5px 5px; }
 
 form > input:disabled {
-  background-color: red !important; }
+  background-color: #FF0000 !important; }
 
 form input:enabled {
   font-size: 20px; }
@@ -149,33 +149,33 @@ form input:default {
 form input:required {
   margin-left: 30px; }
 form input:optional {
-  background-color: grey; }
+  background-color: #808080; }
 form input:valid {
-  background-color: green; }
+  background-color: #008000; }
 form input:invalid {
-  background-color: red; }
+  background-color: #FF0000; }
 form input:in-range {
-  background-color: green; }
+  background-color: #008000; }
 form input:out-of-range {
-  background-color: red; }
+  background-color: #FF0000; }
 
 ::target {
-  background-color: blue; }
+  background-color: #0000FF; }
 
 .no-cssgradients #top {
   background-image: url("../img/gradient.png"); }
 
 .cssgradients #top {
-  background-image: -webkit-linear-gradient(bottom, black, #fe00fe);
-  background-image: -o-linear-gradient(bottom, black, #fe00fe);
-  background-image: -moz-linear-gradient(bottom, black, #fe00fe);
-  background-image: linear-gradient(bottom, black, #fe00fe); }
+  background-image: -webkit-linear-gradient(bottom, #000000, #FE00FE);
+  background-image: -o-linear-gradient(bottom, #000000, #FE00FE);
+  background-image: -moz-linear-gradient(bottom, #000000, #FE00FE);
+  background-image: linear-gradient(bottom, #000000, #FE00FE); }
 
 ul li + li a.adjacent {
-  color: green; }
+  color: #008000; }
 
 li ~ li {
-  color: green; }
+  color: #008000; }
 
 @font-face {
   font-family: "Pacifico";

@@ -1,33 +1,17 @@
 $border-black: #000000
-=box($float, $margin, $width, $background-color)
-	float: $float
-	margin: $margin
-	width: $width
-	background-color: $background-color
-=circle-clip($clipping)
-	-webkit-clip-path: circle($clipping)
-	clip-path: circle($clipping)
-=ellipse-clip($clipping)
-	-webkit-clip-path: ellipse($clipping)
-	clip-path: ellipse($clipping)
-=text-style($font-family, $font-style, $font-size, $font-weight, $word-spacing, $line-height, $color)
-	font-family: $font-family
-	font-style: $font-style
-	font-size: $font-size
-	font-weight: $font-weight
-	word-spacing: $word-spacing
-	line-height: $line-height
-	color: $color
-=transition($var)
-	-webkit-transition: $var
-	-moz-transition: $var
-	-ms-transition: $var
-	-o-transition: $var
-	transition: $var
+$selection-background: #484848
+$red-primary: #FF0000
+$green-primary: #008000
+$blue-primary: #0000FF
+$grey-primary: #808080
+$yellow-primary: #FFFF00
+$purple-primary: #FE00FE
+$black-prmary: $border-black
+@import _mixins
 
 ::selection
-	background: #484848
-	color: grey
+	background: $selection-background
+	color: $red-primary
 
 body
 	height: auto
@@ -53,7 +37,7 @@ nav
 		+transition(all 2s ease)
 	a:hover
 		cursor: url("../img/cursor.png"), default
-		color: green	
+		color: $green-primary	
 
 nav ul li,
 footer ul li
@@ -65,16 +49,18 @@ aside
 	margin: 10px 0 10px 0
 	width: 20%
 	height: auto
-	background-color: red
+	background-color: $red-primary
 	b:hover
 		visibility: hidden
 
+.aside2
+	@extend aside
 
 p.class-first-line:first-line
-	+text-style(sans-serif, italic, 1.8em, null, 10px, 70px, red)
+	+text-style(sans-serif, italic, 1.8em, null, 10px, 70px, $red-primary)
 
 p.class-first-letter:first-letter
-	+text-style(cursive, oblique, 2em, bold, null, null, red)
+	+text-style(cursive, oblique, 2em, bold, null, null, $red-primary)
 
 a[href^="http"]:before
 	content: url("../img/cursor.png")
@@ -88,10 +74,10 @@ footer
 	+box(left, 10px 0 10px 0, 80%, null)
 
 .full-content
-	+box(left, 10px 1% 10px, 78%, yellow)
+	+box(left, 10px 1% 10px, 78%, $yellow-primary)
 
 .half-content
-	+box(left, 10px 1% 10px, 48%, green)
+	+box(left, 10px 1% 10px, 48%, $green-primary)
 
 .clear-float
 	+box(none, 0px, 0px, null)
@@ -138,7 +124,7 @@ fieldset
 	margin: 5px 5px 5px 5px
 
 form > input:disabled
-	background-color: red !important
+	background-color: $red-primary !important
 
 form 
 	input:enabled
@@ -152,33 +138,33 @@ form
 	input:required
 		margin-left: 30px
 	input:optional
-		background-color: grey
+		background-color: $grey-primary
 	input:valid
-		background-color: green
+		background-color: $green-primary
 	input:invalid
-		background-color: red
+		background-color: $red-primary
 	input:in-range
-		background-color: green
+		background-color: $green-primary
 	input:out-of-range
-		background-color: red
+		background-color: $red-primary
 
 ::target
-	background-color: blue
+	background-color: $blue-primary
 
 .no-cssgradients #top
 	background-image: url("../img/gradient.png")
 
 .cssgradients #top
-	background-image: -webkit-linear-gradient(bottom, rgb(0,0,0), rgb(254,0,254))
-	background-image: -o-linear-gradient(bottom, rgb(0,0,0), rgb(254,0,254))
-	background-image: -moz-linear-gradient(bottom, rgb(0,0,0), rgb(254,0,254))
-	background-image: linear-gradient(bottom, rgb(0,0,0), rgb(254,0,254))
+	background-image: -webkit-linear-gradient(bottom, $black-prmary, $purple-primary)
+	background-image: -o-linear-gradient(bottom, $black-prmary, $purple-primary)
+	background-image: -moz-linear-gradient(bottom, $black-prmary, $purple-primary)
+	background-image: linear-gradient(bottom, $black-prmary, $purple-primary)
 
 ul li + li a.adjacent
-	color: green
+	color: $green-primary
 
 li ~ li
-	color: green
+	color: $green-primary
 
 @font-face 
 	font-family: "Pacifico"

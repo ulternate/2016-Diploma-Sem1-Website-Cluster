@@ -1,0 +1,29 @@
+=box($float, $margin, $width, $background-color)
+	float: $float
+	margin: $margin
+	width: $width
+	background-color: $background-color
+
+=circle-clip($clipping)
+	-webkit-clip-path: circle($clipping)
+	clip-path: circle($clipping)
+
+=ellipse-clip($clipping)
+	-webkit-clip-path: ellipse($clipping)
+	clip-path: ellipse($clipping)
+
+=text-style($font-family, $font-style, $font-size, $font-weight, $word-spacing, $line-height, $color)
+	font-family: $font-family
+	font-style: $font-style
+	font-size: $font-size
+	font-weight: $font-weight
+	word-spacing: $word-spacing
+	line-height: $line-height
+	color: $color
+
+=transition($var)
+	-webkit-transition: $var
+	-moz-transition: $var
+	-ms-transition: $var
+	-o-transition: $var
+	transition: $var
