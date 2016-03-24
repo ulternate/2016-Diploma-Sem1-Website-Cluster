@@ -1,3 +1,35 @@
+/*The following is my original CSS file rewritten using Sass. Note the following dependancies for the master.sass to compile
+ * '_mixins.sass' -> My Partial used to handle my mixins with arguments.
+ *
+ * This comment block will show in the compiled master.css
+ */
+/* -------------------------------------------------------------
+ *  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+ *  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
+ *
+ *  List of CSS3 Sass Mixins File to be @imported and @included as you need
+ *
+ *  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER
+ *  ENDING css files
+ *
+ *  note: All CSS3 Properties are being supported by Safari 5
+ *  more info: http://www.findmebyip.com/litmus/#css3-properties
+ *
+ *------------------------------------------------------------- */
+.pre-built {
+  filter: alpha(opacity=50);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  -webkit-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  -moz-opacity: 0.5;
+  -ms-opacity: 0.5;
+  -o-opacity: 0.5;
+  opacity: 0.5; }
+
+.function-test {
+  /* $blue-primary is = #0000FF and I'm using the sass function complement to determine it's complement value (should be yellow) */
+  color: yellow; }
+
 ::selection {
   background: #484848;
   color: #FF0000; }
@@ -24,6 +56,7 @@ nav {
     list-style-type: none; }
   nav a {
     -webkit-transition: all 2s ease;
+    -khtml-transition: all 2s ease;
     -moz-transition: all 2s ease;
     -ms-transition: all 2s ease;
     -o-transition: all 2s ease;
@@ -45,6 +78,9 @@ aside, .aside2 {
   background-color: #FF0000; }
   aside b:hover, .aside2 b:hover {
     visibility: hidden; }
+
+.aside2 {
+  background-image: url("../img/gradient.png"); }
 
 p.class-first-line:first-line {
   font-family: sans-serif;
@@ -184,5 +220,37 @@ li ~ li {
   font-style: italic; }
 .font-test {
   font-family: "Pacifico"; }
+
+.if-test-class {
+  /*$boolean was true */
+  display: block; }
+
+.item-1 {
+  /*I'm in loop 1 */
+  width: 2em; }
+
+.item-2 {
+  /*I'm in loop 2 */
+  width: 4em; }
+
+.item-3 {
+  /*I'm in loop 3 */
+  width: 6em; }
+
+.my-name-test .Daniel {
+  /* This is an empty class, but the name value for this iteration was Daniel */ }
+.my-name-test .Christopher {
+  /* This is an empty class, but the name value for this iteration was Christopher */ }
+.my-name-test .Swain {
+  /* This is an empty class, but the name value for this iteration was Swain */ }
+
+.while-3 {
+  width: 23px; }
+
+.while-2 {
+  width: 22px; }
+
+.while-1 {
+  width: 21px; }
 
 /*# sourceMappingURL=master.css.map */

@@ -1,3 +1,29 @@
+// Sass Assignment Tasks - These are single line comments so they aren't compiled to CSS.
+// Using nested rules 				<- Done, commented in this file
+// Using comments in SASS 			<- Done.
+// Partials and SASS 				<- Done, see my _mixins.sass file.
+// Variables: 						<- Done, see my colours at the top.
+// Using CSS-3 directives in SASS: 	<- Done, see the @font-face at the botom of the file.
+// Creating and using mixins: 		<- Done, see my _mixins.sass file for declarations.
+// Mixins and Arguments: 			<- Done, see my _mixins.sass file for declarations.
+// @include:						<- Done, see below where I've used my mixins. In Sass an include is done like this: +mixin_name instead of: @include mixin_name				
+// @extend: 						<- Done, see my aside2, I add a background to it but keep the aside main properties.
+// Placeholders: 					<- Done, see my %clear-float-placeholder
+// Dry Principle: 					<- Done, I've made a few mixins for repeated code and have nested or comma'd elements that share definitions.
+// @each, @if and other control directives: <- Done, see close to end of this file.
+// Altering output style: 			<- Done, I've set the style to compressed using the following cmd line 'sass --watch master.sass:master.min.css --style compressed' This minified my css
+// Functions: 						<- Done, I'm using the complement($color) function.
+// Using a pre-built mixin library: <- Done, I used css3-mixins, but I had to edit it as it overwrote my =box mixin I'd made earlier.
+
+
+
+/*The following is my original CSS file rewritten using Sass. Note the following dependancies for the master.sass to compile
+ * '_mixins.sass' -> My Partial used to handle my mixins with arguments.
+ *
+ * This comment block will show in the compiled master.css
+ */
+
+// Variables, primarily used for colours
 $border-black: #000000
 $selection-background: #484848
 $red-primary: #FF0000
@@ -7,7 +33,19 @@ $grey-primary: #808080
 $yellow-primary: #FFFF00
 $purple-primary: #FE00FE
 $black-prmary: $border-black
-@import _mixins
+$blue-complement: complement($blue-primary)
+@import mixins
+@import css3-mixins
+
+// Use a Pre-built library
+.pre-built
+	+opacity()
+
+
+// Test Sass functions by using complement
+.function-test
+	/* $blue-primary is = #{$blue-primary} and I'm using the sass function complement to determine it's complement value (should be yellow)*/
+	color: $blue-complement
 
 ::selection
 	background: $selection-background
@@ -27,6 +65,7 @@ header
 h3
 	border-bottom: 1px solid $border-black
 
+// Demonstrating Nested rules
 nav
 	border: 1px solid $border-black
 	height: 50px
@@ -53,9 +92,12 @@ aside
 	b:hover
 		visibility: hidden
 
+// Extend the original aside and all it's properties but lets add an extra one.
 .aside2
 	@extend aside
+	background-image: url("../img/gradient.png")
 
+// Include my text-style mixin. NB +'mixin-name' is the .sass version of @include 'mixin_name'
 p.class-first-line:first-line
 	+text-style(sans-serif, italic, 1.8em, null, 10px, 70px, $red-primary)
 
@@ -79,7 +121,8 @@ footer
 .half-content
 	+box(left, 10px 1% 10px, 48%, $green-primary)
 
-.clear-float
+// %clear-float-placeholder won't be compiled to css
+%clear-float-placeholder
 	+box(none, 0px, 0px, null)
 	font-size: 0px
 	padding: 0px
@@ -87,6 +130,10 @@ footer
 	height: 0px
 	border: 0px none
 	line-height: 0px
+
+// .clear-float will extend the %clear-float-placeholder and will show up in the compiled css.
+.clear-float
+	@extend %clear-float-placeholder
 
 .clear-left
 	clear: left
@@ -166,6 +213,7 @@ ul li + li a.adjacent
 li ~ li
 	color: $green-primary
 
+// CSS Directive example.
 @font-face 
 	font-family: "Pacifico"
 	src: url("../fonts/Pacifico.ttf") format("truetype")
@@ -174,3 +222,45 @@ li ~ li
 
 .font-test
 	font-family: "Pacifico"
+
+// Control directives @if, @each, @for and @while
+
+// If loop
+$boolean: true
+=if-test-mixin
+	@if boolean
+		/*$boolean was #{$boolean} */
+		display: block
+	@else
+		/*$boolean was #{$boolean} */
+		display: none
+
+// Compile to css the code from the above mixin depending on the boolean value
+.if-test-class
+	+if-test-mixin
+
+// For loop
+@for $i from 1 through 3
+	.item-#{$i}
+		/*I'm in loop #{$i} */
+		width: 2em * $i
+
+// Each test, this will iterate through each $var in my $list and create an empty class with the $var as the name.
+$list: Daniel Christopher Swain
+=whats-my-name
+	@each $name in $list
+		.#{$name}
+			/* This is an empty class, but the name value for this iteration was #{$name}*/
+
+// Actually use the above mixin and @each control directive.
+.my-name-test
+	+whats-my-name
+
+// While loop
+$counter: 3
+@while $counter > 0
+	.while-#{$counter}
+		width: 20px + $counter
+	$counter: $counter - 1
+
+// End control directives
